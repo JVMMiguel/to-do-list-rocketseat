@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/api/users")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
 

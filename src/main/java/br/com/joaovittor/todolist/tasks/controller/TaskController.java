@@ -21,7 +21,7 @@ import java.util.UUID;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/tasks")
+@RequestMapping(value = "/api/tasks")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class TaskController {
 

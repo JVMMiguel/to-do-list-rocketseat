@@ -31,7 +31,7 @@ public class AuthUtils extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (!request.getServletPath().startsWith("/h2-console")) {
+        if (request.getServletPath().startsWith("/api/tasks") || request.getServletPath().startsWith("/api/users")) {
             String authorization = request.getHeader("Authorization");
             String userInformationEncoded = authorization.substring("Basic".length()).trim();
             byte[] userInformationDecoded = Base64.getDecoder().decode(userInformationEncoded);
