@@ -37,10 +37,10 @@ public class Task implements Serializable {
     @JoinColumn(name = "created_by", foreignKey = @ForeignKey(name = "fk_tasks_users"), updatable = false)
     private User userId;
 
-    @Column(name = "start_at", updatable = false)
+    @Column(name = "start_at")
     private LocalDateTime startAt;
 
-    @Column(name = "end_at", updatable = false)
+    @Column(name = "end_at")
     private LocalDateTime endAt;
 
     @CreationTimestamp

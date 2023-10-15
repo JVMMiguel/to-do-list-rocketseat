@@ -15,12 +15,19 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AuthUtils extends OncePerRequestFilter {
 
     private final UserRepository repository;
+
+    public static UUID getLoggedUser(HttpServletRequest request) {
+        Object userId = request.getAttribute("userId");
+
+        return (UUID) userId;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
