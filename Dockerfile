@@ -1,10 +1,11 @@
 FROM ubuntu:latest AS build
 
-RUN apt update && apt upgrade -y && apt install openjdk-17-jdk -y && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+RUN apt update && apt upgrade -y && apt install openjdk-17-jdk -y
 
 COPY . .
 
-RUN apt install maven -y && mvn clean install && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+RUN apt install maven -y && mvn clean install
+RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 FROM openjdk:17-jdk-slim
 
