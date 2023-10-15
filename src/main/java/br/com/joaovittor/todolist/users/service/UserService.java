@@ -1,5 +1,6 @@
 package br.com.joaovittor.todolist.users.service;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import br.com.joaovittor.todolist.users.exception.UserException;
 import br.com.joaovittor.todolist.users.model.User;
 import br.com.joaovittor.todolist.users.repository.UserRepository;
@@ -22,6 +23,9 @@ public class UserService {
 
         if (entity.isPresent())
             throw new UserException("This username is already in use.");
+
+        String passwordEncrypted = BCrypt.withDefaults().hashToString(12, user.getPassword().toCharArray());
+        user.setPassword(passwordEncrypted);
 
         repository.save(user);
     }
