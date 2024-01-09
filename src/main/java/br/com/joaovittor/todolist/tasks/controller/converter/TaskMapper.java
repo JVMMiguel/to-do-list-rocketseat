@@ -11,7 +11,7 @@ import org.mapstruct.ReportingPolicy;
 public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
 
     @Override
-    @Mapping(target = "userId", source = "model.userId.id")
+    @Mapping(target = "userId", expression = "java(model.getUserUUID())")
     TaskDTO toDTO(Task model);
 
     @Override
