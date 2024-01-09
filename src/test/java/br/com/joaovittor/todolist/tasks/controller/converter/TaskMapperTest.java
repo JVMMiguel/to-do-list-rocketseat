@@ -28,7 +28,7 @@ public class TaskMapperTest {
         assertEquals(model.getTitle(), dto.getTitle());
         assertEquals(model.getDescription(), dto.getDescription());
         assertEquals(model.getPriority(), dto.getPriority());
-        assertEquals(model.getUserId().getId(), dto.getUserId());
+        assertEquals(model.getUserUUID(), dto.getUserId());
         assertEquals(model.getStartAt(), dto.getStartAt());
         assertEquals(model.getEndAt(), dto.getEndAt());
     }
@@ -43,7 +43,7 @@ public class TaskMapperTest {
         assertEquals(modelList.get(0).getTitle(), dtoList.get(0).getTitle());
         assertEquals(modelList.get(0).getDescription(), dtoList.get(0).getDescription());
         assertEquals(modelList.get(0).getPriority(), dtoList.get(0).getPriority());
-        assertEquals(modelList.get(0).getUserId().getId(), dtoList.get(0).getUserId());
+        assertEquals(modelList.get(0).getUserUUID(), dtoList.get(0).getUserId());
         assertEquals(modelList.get(0).getStartAt(), dtoList.get(0).getStartAt());
         assertEquals(modelList.get(0).getEndAt(), dtoList.get(0).getEndAt());
     }
@@ -75,5 +75,4 @@ public class TaskMapperTest {
         assertEquals(dtoList.get(0).getStartAt(), modelList.get(0).getStartAt());
         assertEquals(dtoList.get(0).getEndAt(), modelList.get(0).getEndAt());
     }
-
 }

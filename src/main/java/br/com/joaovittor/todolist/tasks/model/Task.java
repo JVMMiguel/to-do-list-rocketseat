@@ -46,4 +46,8 @@ public class Task implements Serializable {
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
+
+    public UUID getUserUUID() {
+        return this.userId.getId();
+    }
 }
